@@ -1,19 +1,19 @@
 import Card from "./Card.js"
-const cardListItem = (imgData) => {
-    return `
+const cardListItem = (x) => {
+  return `
     <li>
-    ${Card(imgData)}
+    ${Card(x)}
     </li>
-    `
-}
+    `;
+};
 const CardList =(data)=> {
     return `
     <link href="components/cardlist.css" rel="stylesheet" />
 <div class="container">
 <ul class="cardlist">
-${data.map((imgData)=> cardListItem(imgData)).join("")}
+${data.map((x) => cardListItem(x)).join("")}
 </ul>
 </div>
-    `
+    `;
 }
 export default CardList;

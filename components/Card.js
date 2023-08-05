@@ -1,4 +1,4 @@
-const Card = (imgData) => {
+const Card = (x) => {
   // four objects 1,2,3,4
   // indeimgDataes      0,1,2,3
 
@@ -18,12 +18,13 @@ const Card = (imgData) => {
     links: { self },
     authorsUrl,
     author,
-  } = imgData;
+    weight,
+  } = x;
 
-  const getDate = (imgData) => {
-    const date = new Date(imgData.created_at);
+  const getDate = (x) => {
+    const date = new Date(createdAt);
     const readableDate = date.toLocaleString("default", {
-      year: "numeric",
+      year: "2-digit",
       month: "short",
       day: "numeric",
     });
@@ -62,7 +63,7 @@ const Card = (imgData) => {
 
   return `
       <div class="image">
-        ${buidImage(imgData)}
+        ${buidImage(x)}
         <figcaption class="image__caption">
           <h3 class="image__title">${description}</h3>
           <div class="image__meta">
@@ -71,7 +72,7 @@ const Card = (imgData) => {
               <span class="image__photog">${name}</span>.
             </p>
             <p>
-            Uploaded On <time datetime="${createdAt}">${getDate(imgData)}</time>
+            Uploaded On <time datetime="${createdAt}">${getDate(x)}</time>
             </p>
             <p>
               <a href="${self}" class="image__link">
@@ -79,6 +80,7 @@ const Card = (imgData) => {
               </a>
             </p>
             <p>Author: <a href="${authorsUrl}">${author}</a><p/>
+            <p>${weight}</p>
           </div>
         </figcaption>
       </div>

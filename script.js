@@ -6,6 +6,7 @@
  */
 
 import data from "./data.js";
+console.log("old data ------>", data);
 import CardList from "./components/CardList.js";
 
 const author = {
@@ -19,7 +20,7 @@ const newData = data.map((imgData) => {
   const newImgData = { ...imgData, ...author };
   return newImgData;
 });
-console.log(newData);
+console.log("New Data ----->", newData);
 
 const mainContent = document.querySelector(".main-content");
 
